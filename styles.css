@@ -30,11 +30,42 @@ input{
     width: 90%;
     padding: 1rem;
     margin: 10px auto;
-    height: 10px;
+    height: 12px;
     display: block;
 }
 
 button{
     margin: 0.2rem;
     margin-bottom: 1rem;
+}
+
+.btn{
+    padding: 0.7rem 0.5rem;
+    width: 5rem;
+    font-size: 1rem;
+    color: var(--primary-color);
+    background-color: var(--light-green);
+    border: none;
+    border-radius: 3px;
+    font-weight: bold;
+}
+
+.output-table{
+    margin: 1rem;
+}
+
+table, th, td{
+    background-color: white;
+    color: var(--primary-color);
+    background-color: var(--light-green);
+    margin: auto;
+    padding: 0.5rem;
+    border: 2px solid var(--primary-color);
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+}
+
+.noteCounter{
+    background-color: white;
 }
