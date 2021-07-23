@@ -11,28 +11,30 @@
 
 <body>
     <div class="container">
-        <div>
+        <div class="first">
             <h1>Cash Register Manager</h1>
             <p>Enter the bill amount and cash given by the customer and know minimun number of notes in return.</p>
             <br>
         </div>
 
-        <div class="bill-amt-input">
+        <div class="mid1">
             <div class="heading">Bill Amount:</div>
-            <input type="text" id="" name="bill-amt">
-            <button class="btn">Next</button>
+            <input type="text" id="billAmt" name="bill-amt">
+            <button class="btn" id="nextBtn">Next</button>
+            <div class="mid1Error">Please enter a valid bill amount.</div>
         </div>
 
-        <div class="cash-given-input">
+        <div class="mid2">
             <div class="heading">Cash Given:</div>
-            <input type="text" id="" name="cash-given">
-            <button class="btn">Check</button>
+            <input type="text" id="cashAmt" name="cash-given">
+            <button class="btn" id="checkBtn">Check</button>
+            <div class="mid2Error">Cash entered is either less than or equal to the bill amount.</div>
         </div>
 
-        <div class="change">
+        <div class="last">
             <div class="heading">Return Change:</div>
 
-            <div class="output-table">
+            <div class="changeTable">
                 <table>
                     <tr>
                         <th>No.of Notes</td>

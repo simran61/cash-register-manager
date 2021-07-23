@@ -69,3 +69,19 @@ table, th, td{
 .noteCounter{
     background-color: white;
 }
+
+.mid1Error{
+    display: none;
+}
+
+.mid2{
+    display: none;
+}
+
+.mid2Error{
+    display: none;
+}
+
+.last{
+    display: none;
+}
