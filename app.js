@@ -1,25 +1,25 @@
-var billEntered = document.querySelector("#billAmt");   //bill amount input box
-var cashEntered = document.querySelector("#cashAmt");    //cash amount input box
+const billEntered = document.querySelector("#billAmt");   //bill amount input box
+const cashEntered = document.querySelector("#cashAmt");    //cash amount input box
 
-//var returnAmt = cashEntered - billEntered;          //amt on which calculation is to be performed
+//const returnAmt = cashEntered - billEntered;          //amt on which calculation is to be performed
 
-var next = document.querySelector("#nextBtn");     //next button
-var check = document.querySelector("checkBtn");    //check button
+const next = document.querySelector("#nextBtn");     //next button
+const check = document.querySelector("#checkBtn");    //check button
 
-var cashGiven = document.querySelector(".mid2");    //cash given complete div
-var changeTable = document.querySelector(".last");   //return change complete div
+const cashGiven = document.querySelector(".mid2");    //cash given complete div
+const changeTable = document.querySelector(".last");   //return change complete div
 
-var billError = document.querySelector(".mid1Error");    //bill amount error msg
-var cashError = document.querySelector(".mid2Error");    //cash given error msg
-var returnError = document.querySelector(".lastError");   //no cash should be returned (retAmt<1)
+const billError = document.querySelector(".mid1Error");    //bill amount error msg
+const cashError = document.querySelector(".mid2Error");    //cash given error msg
+const returnError = document.querySelector(".lastError");   //no cash should be returned (retAmt<1)
 
-var noOfNotes = document.querySelector(".noteCounter");     //individual no. of notes block of table
+const noOfNotes = document.querySelectorAll(".noteCounter");     //individual no. of notes block of table
 
-var arrayOfNotes = [2000, 500, 100, 20, 10, 5, 1];
+const arrayOfNotes = [2000, 500, 100, 20, 10, 5, 1];
 
 //showing cash given div
 nextBtn.addEventListener("click", () => {
-    if (Number(billAmt.value) > 0) {
+    if (Number(billEntered.value) > 0) {
         nextBtn.style.display = "none";
         cashGiven.style.display = "block";
     }
@@ -30,39 +30,31 @@ nextBtn.addEventListener("click", () => {
 
 //showing table on clicking check
 checkBtn.addEventListener("click", () => {
-    if (Number(cashAmt.value) > Number(billAmt.value)) {
+    if (Number(cashEntered.value) > Number(billEntered.value)) {
         // checkBtn.style.display="none";
         // changeTable.style.display = "block";
-        calculation(billEntered, cashEntered);
+        let billEntry = Number(billEntered.value);
+        let cashEntry = Number(cashEntered.value);
+        calculation(billEntry, cashEntry);
     }
 });
 
 // funtion for calculating no. of notes    
 function calculation(bill, cash) {
-    var retAmt = cash - bill;
+    let retAmt = cash - bill;
     if(retAmt<1){
         lastError.style.display = "block";
     }
     changeTable.style.display = "block";
-    for(var i=0; i<arrayOfNotes.length; i++){
-        if(retAmt>arrayOfNotes[i])
+    for(let i=0; i<arrayOfNotes.length; i++){
+        if(retAmt>=arrayOfNotes[i])
         {
-            var notes= Math.floor(retAmt/arrayOfNotes[i]);
-            // noOfNotes[i].innerText= '${notes}';
-            noOfNotes[i].innerText= notes;
+            let notes= Math.floor(retAmt/arrayOfNotes[i]); 
+            noOfNotes[i].innerText= `${notes}`;
+            // noOfNotes[i].innerText= notes;
             retAmt=retAmt%arrayOfNotes[i];
         }
     }
 }
 
-        //calculating no of notes
-        // function calculation() {
-        //     for(var i=0; i<arrayOfNotes.length; i++)
-        //     {
-        //         if(returnAmt>arrayOfNotes[i]){
-        //             var notes= math.floor(returnAmt/arrayOfNotes[i])
-        //             //innerhtml
-        //             returnAmt=returnAmt%arrayOfNotes[i];
-        //         }
-        //     }
 
