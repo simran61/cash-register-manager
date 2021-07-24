@@ -82,6 +82,10 @@ table, th, td{
     display: none;
 }
 
+.lastError{
+    display: none;
+}
+
 .last{
     display: none;
 }
