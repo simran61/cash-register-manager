@@ -37,14 +37,20 @@ checkBtn.addEventListener("click", () => {
         let cashEntry = Number(cashEntered.value);
         calculation(billEntry, cashEntry);
     }
+    else if(Number(cashEntered.value) < Number(billEntered.value)){
+        cashError.style.display="block";
+    }
+    else{
+        returnError.style.display="block";
+    }
 });
 
 // funtion for calculating no. of notes    
 function calculation(bill, cash) {
     let retAmt = cash - bill;
-    if(retAmt<1){
-        lastError.style.display = "block";
-    }
+    // if(retAmt<1){
+    //     lastError.style.display = "block";
+    // }
     changeTable.style.display = "block";
     for(let i=0; i<arrayOfNotes.length; i++){
         if(retAmt>=arrayOfNotes[i])
