@@ -1,8 +1,6 @@
 const billEntered = document.querySelector("#billAmt");   //bill amount input box
 const cashEntered = document.querySelector("#cashAmt");    //cash amount input box
 
-//const returnAmt = cashEntered - billEntered;          //amt on which calculation is to be performed
-
 const next = document.querySelector("#nextBtn");     //next button
 const check = document.querySelector("#checkBtn");    //check button
 
@@ -22,6 +20,7 @@ nextBtn.addEventListener("click", () => {
     if (Number(billEntered.value) > 0) {
         nextBtn.style.display = "none";
         cashGiven.style.display = "block";
+        billError.style.display = "none";
     }
     else {
         billError.style.display = "block";
@@ -30,35 +29,42 @@ nextBtn.addEventListener("click", () => {
 
 //showing table on clicking check
 checkBtn.addEventListener("click", () => {
-    if (Number(cashEntered.value) > Number(billEntered.value)) {
-        // checkBtn.style.display="none";
-        // changeTable.style.display = "block";
+    if (Number(billEntered.value) < 1) {
+        billError.style.display = "block";
+        changeTable.style.display = "none"
+    }
+    else if (Number(cashEntered.value) > Number(billEntered.value)) {
         let billEntry = Number(billEntered.value);
         let cashEntry = Number(cashEntered.value);
+        returnError.style.display = "none";
+        cashError.style.display = "none";
+        billError.style.display = "none";
         calculation(billEntry, cashEntry);
     }
-    else if(Number(cashEntered.value) < Number(billEntered.value)){
-        cashError.style.display="block";
+    else if (Number(cashEntered.value) < Number(billEntered.value)) {
+        cashError.style.display = "block";
+        returnError.style.display = "none";
+        changeTable.style.display = "none";
+        billError.style.display = "none";
     }
-    else{
-        returnError.style.display="block";
+    else {
+        returnError.style.display = "block";
+        cashError.style.display = "none";
+        changeTable.style.display = "none";
+        billError.style.display = "none";
     }
 });
 
 // funtion for calculating no. of notes    
 function calculation(bill, cash) {
     let retAmt = cash - bill;
-    // if(retAmt<1){
-    //     lastError.style.display = "block";
-    // }
     changeTable.style.display = "block";
-    for(let i=0; i<arrayOfNotes.length; i++){
-        if(retAmt>=arrayOfNotes[i])
-        {
-            let notes= Math.floor(retAmt/arrayOfNotes[i]); 
-            noOfNotes[i].innerText= `${notes}`;
-            // noOfNotes[i].innerText= notes;
-            retAmt=retAmt%arrayOfNotes[i];
+    for (let i = 0; i < arrayOfNotes.length; i++) {
+        noOfNotes[i].innerText = " ";
+        if (retAmt >= arrayOfNotes[i]) {
+            let notes = Math.floor(retAmt / arrayOfNotes[i]);
+            noOfNotes[i].innerText = `${notes}`;
+            retAmt = retAmt % arrayOfNotes[i];
         }
     }
 }

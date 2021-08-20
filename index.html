@@ -15,20 +15,18 @@
             <h4 class="name">SimranCodes</h4>
             <h1>Cash Register Manager</h1>
             <p>Enter the bill amount and cash given by the customer and know minimun number of notes in return.</p>
-            <p style="font-size: 0.8rem;">Once you are done with one payment, refresh the page for next payment.</p>
-            <br>
         </div>
 
         <div class="mid1">
             <div class="heading">Bill Amount:</div>
-            <input type="text" id="billAmt" name="bill-amt">
+            <input type="number" id="billAmt" name="bill-amt">
             <button class="btn" id="nextBtn">Next</button>
             <div class="mid1Error">Please enter a valid bill amount.</div>
         </div>
 
         <div class="mid2">
             <div class="heading">Cash Given:</div>
-            <input type="text" id="cashAmt" name="cash-given">
+            <input type="number" id="cashAmt" name="cash-given">
             <button class="btn" id="checkBtn">Check</button>
             <div class="mid2Error">Cash entered is less than the bill amount.</div>
             <div class="lastError">No amount should be returned</div>
